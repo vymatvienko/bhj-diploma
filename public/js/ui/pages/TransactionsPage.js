@@ -11,14 +11,18 @@ class TransactionsPage {
    * через registerEvents()
    * */
   constructor( element ) {
-
+    if (!element) {
+      throw new Error('Такого элемента не существует');
+    }
+    this.element = element;
+    this.registerEvents();
   }
 
   /**
    * Вызывает метод render для отрисовки страницы
    * */
   update() {
-
+    // this.render(this.lastOptions);
   }
 
   /**
@@ -41,7 +45,17 @@ class TransactionsPage {
    * для обновления приложения
    * */
   removeAccount() {
-
+    if (this.lastOptions) {
+      if (window.confirm('Вы действительно хотите удалить счёт?')) {
+        Account.remove(data, (err, response) => {
+          if (response && response.success) {
+            App.updateWidgets();
+            App.updateForms();
+          }
+        });
+        this.clear();
+      }
+    }
   }
 
   /**
@@ -61,7 +75,22 @@ class TransactionsPage {
    * в TransactionsPage.renderTransactions()
    * */
   render(options){
+    if (!options) {
+      throw new Error('Такого элемента не существует');
+    }
 
+    this.lastOptions = options;
+
+    Account.get(options.account_id, (err, response) => {
+      if (response && response.success) {
+        this.renderTitle(response.data.name);
+      }
+    });
+    Transaction.list(options, (err, response) => {
+      if (response && response.success) {
+        this.renderTransactions(response.data);
+      }
+    });
   }
 
   /**
@@ -70,14 +99,17 @@ class TransactionsPage {
    * Устанавливает заголовок: «Название счёта»
    * */
   clear() {
-
+    this.renderTransactions([]);
+    this.renderTitle('Название счёта');
+    this.lastOptions = '';
   }
 
   /**
    * Устанавливает заголовок в элемент .content-title
    * */
   renderTitle(name){
-
+    const contentTitle = this.element.querySelector('.content-title');
+    contentTitle.textContent = name;
   }
 
   /**
@@ -85,7 +117,29 @@ class TransactionsPage {
    * в формат «10 марта 2019 г. в 03:20»
    * */
   formatDate(date){
+    const newDate = new Date(date);
 
+    const monthes = [
+      'января',
+      'февраля',
+      'марта',
+      'апреля',
+      'мая',
+      'июня',
+      'июля',
+      'августа',
+      'сентября',
+      'октября',
+      'ноября',
+      'декабря',
+    ];
+    const day = newDate.getDate();
+    const month = monthes[newDate.getMonth()];
+    const year = newDate.getFullYear();
+    const hour = newDate.getHours();
+    const minutes = newDate.getMinutes();
+    
+    return day + ' ' + month + ' ' + year + ' г. в ' + hour + ' ' + minutes;
   }
 
   /**

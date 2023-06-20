@@ -3,7 +3,6 @@
  * на сервер.
  * */
 const createRequest = (options = {}) => {
-    console.log(options);
     const xhr = new XMLHttpRequest;
 
     if (!options.data) {
@@ -11,7 +10,6 @@ const createRequest = (options = {}) => {
     }
     
     const optionsArr = Object.entries(options.data);
-    console.log(optionsArr);
 
     xhr.onload = () => {
         if (xhr.status >= 200 && xhr.status <= 299) {
@@ -37,10 +35,16 @@ const createRequest = (options = {}) => {
 
   } else {
 
+    console.log(optionsArr);
+
     const formData = new FormData;
     for (let i = 0; i < optionsArr.length; i++) {
     formData.append(optionsArr[i][0], optionsArr[i][1]);
     }
+
+    // console.log(formData);
+    console.log(options.url);
+
 
     xhr.open(options.method, options.url);
     xhr.responseType = 'json';

@@ -57,7 +57,6 @@ class AsyncForm {
    * */
   submit() {
     this.getData();
-    // const registerForm = new RegisterForm();
-    this.onSubmit(this.data);
+    this.onSubmit(this.data)
   }
 }

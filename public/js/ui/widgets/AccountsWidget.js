@@ -20,6 +20,7 @@ class AccountsWidget {
     this.element = element;
     this.registerEvents();
     this.update();
+    this.account = [];
   }
 
   /**
@@ -32,17 +33,20 @@ class AccountsWidget {
   registerEvents() {
     const createAccountButton = document.querySelector('.create-account');
     const createAccountModal = App.getModal('createAccount');
-    const account = [...document.querySelectorAll('.account')];
+    // this.account = document.querySelectorAll('.account');
 
     createAccountButton.addEventListener('click', () => {
       createAccountModal.open();
     });
 
-    // account.forEach((a) => {
-    //   a.addEventListener('click', () => {
-    //     this.onSelectAccount();
-    //   })
-    // })
+  //   console.log(this.account);
+  //   this.account.forEach((a) => {
+  //     console.log(a);
+  //     a.addEventListener('click', () => {
+  //       console.log(a);
+  //       this.onSelectAccount(a);
+  //     });
+  //   });
   }
 
   /**
@@ -63,6 +67,13 @@ class AccountsWidget {
           for (let i = 0; i < response.data.length; i++) {
             this.renderItem(response.data[i]);
           }
+          this.account = [...document.querySelectorAll('.account')];
+          this.account.forEach((a) => {
+            a.addEventListener('click', () => {
+              this.onSelectAccount(a);
+            });
+          });
+          // this.account = [...document.querySelectorAll('.account')];
         }
       });
     }
@@ -74,9 +85,9 @@ class AccountsWidget {
    * в боковой колонке
    * */
   clear() {
-    const account = [...document.querySelectorAll('.account')];
-    for (let i = 0; i < account.length; i++) {
-      account[i].remove();
+    // this.account = [...document.querySelectorAll('.account')];
+    for (let i = 0; i < this.account.length; i++) {
+      this.account[i].remove();
     }
   }
 
@@ -88,14 +99,14 @@ class AccountsWidget {
    * Вызывает App.showPage( 'transactions', { account_id: id_счёта });
    * */
   onSelectAccount( element ) {
-    // const activeAccount = document.querySelector('.active');
+    const activeAccount = document.querySelector('.active');
 
-    // if (activeAccount) {
-    //   activeAccount.classList.remove('active');
-    // }
-    // element.classList.add('active');
-    // console.log(element);
-    // App.showPage('transactions', {account_id: element.dataset.id});
+    if (activeAccount) {
+      activeAccount.classList.remove('active');
+    }
+    element.classList.add('active');
+    console.log(element);
+    App.showPage('transactions', {account_id: element.dataset.id});
   }
 
   /**
@@ -109,8 +120,6 @@ class AccountsWidget {
       '<span>' + item.name + '</span>' + ' / ' + 
       '<span>' + item.sum + ' ₽' + '</span>' + 
     '</a></li>';
-    console.log(getAccount);
-
     return getAccount;
   }
 
@@ -122,7 +131,6 @@ class AccountsWidget {
    * */
   renderItem(data) {
     const sidebarAccountPanel = document.querySelector('.accounts-panel');
-    console.log(data);
     sidebarAccountPanel.insertAdjacentHTML('beforeend', this.getAccountHTML(data));
   }
 }
