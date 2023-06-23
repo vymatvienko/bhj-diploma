@@ -69,7 +69,6 @@ class User {
           this.setCurrent(response.user);
         }
         callback(err, response);
-        console.log('Успешно');
       }
     });
   }

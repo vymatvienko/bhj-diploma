@@ -7,100 +7,10 @@
       "id": "1"
     },
     {
-      "name": "fh",
-      "email": "dh@w",
-      "password": "fre",
-      "id": "q7rw5bz0lix6fieo"
-    },
-    {
-      "name": "frg",
-      "email": "bnd@e",
-      "password": "f",
-      "id": "q7rw5fa0lix6vqy8"
-    },
-    {
-      "name": "cd",
-      "email": "dg@w",
-      "password": "we",
-      "id": "q7rw5faglix6xdwi"
-    },
-    {
-      "name": "tj",
-      "email": "tj@rg",
-      "password": "ge",
-      "id": "q7rw56fklix6y0kc"
-    },
-    {
-      "name": "j",
-      "email": "fj@fd",
-      "password": "fde",
-      "id": "q7rw5480lix7qplm"
-    },
-    {
-      "name": "rut",
-      "email": "ru6@e",
-      "password": "ge",
-      "id": "q7rw55hklix7rwor"
-    },
-    {
-      "name": "5u",
-      "email": "ru@r",
-      "password": "ger",
-      "id": "q7rw549slix7xp8l"
-    },
-    {
-      "name": "ruyt",
-      "email": "rty@w",
-      "password": "w",
-      "id": "q7rw589klix8k5on"
-    },
-    {
-      "name": "Error",
-      "email": "er@21",
-      "password": "21",
-      "id": "q7rw5d60lix90v0w"
-    },
-    {
-      "name": "Deo",
-      "email": "deo@sae",
-      "password": "potwkg",
-      "id": "q7rw5ev0lixejje2"
-    },
-    {
-      "name": "frp",
-      "email": "frp@frp",
-      "password": "frp",
-      "id": "q7rw51o8lixeq8n3"
-    },
-    {
-      "name": "Name",
-      "email": "name@name.ru",
-      "password": "name",
-      "id": "q7rw562slixf94ot"
-    },
-    {
-      "name": "name2",
-      "email": "name@name.com",
-      "password": "name",
-      "id": "q7rw56mgliym7hhd"
-    },
-    {
       "name": "test",
-      "email": "testtest@test.ru",
+      "email": "test@test",
       "password": "test",
-      "id": "aeag4qglj4iizd5"
-    },
-    {
-      "name": "wg",
-      "email": "wgw@we",
-      "password": "r3r2",
-      "id": "aeag4qklj4jcs15"
-    },
-    {
-      "name": "rvgrt",
-      "email": "cww@ed",
-      "password": "ed",
-      "id": "aeag3yclj4mstvj"
+      "id": "q7rw5bjclj8hgbwx"
     }
   ],
   "accounts": [
@@ -120,29 +30,24 @@
       "id": "3"
     },
     {
-      "name": "1",
-      "user_id": "q7rw562slixf94ot",
-      "id": "q7rw55t0liyehdz5"
-    },
-    {
-      "name": "Второй счёт",
-      "user_id": "q7rw562slixf94ot",
-      "id": "q7rw59ogliyma33l"
-    },
-    {
       "name": "test",
-      "user_id": "aeag4qglj4iizd5",
-      "id": "aeag7a8lj4ijfl4"
+      "user_id": "q7rw5bjclj8hgbwx",
+      "id": "q7rw54x0lj8hgj20"
     },
     {
-      "name": "wg",
-      "user_id": "aeag4qklj4jcs15",
-      "id": "aeag6wslj4joymm"
+      "name": "test 1",
+      "user_id": "q7rw5bjclj8hgbwx",
+      "id": "q7rw5290lj8hgtf5"
     },
     {
-      "name": "wc",
-      "user_id": "aeag3yclj4mstvj",
-      "id": "aeag5oslj4mw093"
+      "name": "test 2",
+      "user_id": "q7rw5bjclj8hgbwx",
+      "id": "q7rw53clj8hgxjw"
+    },
+    {
+      "name": "test 3",
+      "user_id": "q7rw5bjclj8hgbwx",
+      "id": "q7rw5c50lj8hh164"
     }
   ],
   "transactions": [
@@ -280,6 +185,24 @@
       "sum": 300000,
       "type": "expense",
       "user_id": "1"
+    },
+    {
+      "id": "q7rw548slj8hhh4x",
+      "type": "income",
+      "name": "зп",
+      "sum": 5000000,
+      "account_id": "q7rw54x0lj8hgj20",
+      "user_id": "q7rw5bjclj8hgbwx",
+      "created_at": "2023-06-23T11:23:28.640Z"
+    },
+    {
+      "id": "q7rw5cr0lj8hit98",
+      "type": "expense",
+      "name": "test",
+      "sum": 1,
+      "account_id": "q7rw54x0lj8hgj20",
+      "user_id": "q7rw5bjclj8hgbwx",
+      "created_at": "2023-06-23T11:24:31.003Z"
     }
   ]
 }

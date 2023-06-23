@@ -17,10 +17,6 @@ class CreateTransactionForm extends AsyncForm {
    * Обновляет в форме всплывающего окна выпадающий список
    * */
   renderAccountsList() {
-    // const incomeAccountList = document.getElementById('income-accounts-list');
-    // const expenseAccountList = document.getElementById('expense-accounts-list');
-    // const test = document.querySelectorAll('.test');
-    // console.log();
     Account.list(null, (err, response) => {
       if (response && response.success) {
         const accountSelect = this.element.querySelector('.accounts-select');
@@ -48,6 +44,8 @@ class CreateTransactionForm extends AsyncForm {
         }
         this.element.reset();
         App.update();
+      } else {
+        alert(response.error);
       }
     });
   }

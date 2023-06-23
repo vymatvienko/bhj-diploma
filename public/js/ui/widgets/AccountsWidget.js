@@ -33,20 +33,10 @@ class AccountsWidget {
   registerEvents() {
     const createAccountButton = document.querySelector('.create-account');
     const createAccountModal = App.getModal('createAccount');
-    // this.account = document.querySelectorAll('.account');
 
     createAccountButton.addEventListener('click', () => {
       createAccountModal.open();
     });
-
-  //   console.log(this.account);
-  //   this.account.forEach((a) => {
-  //     console.log(a);
-  //     a.addEventListener('click', () => {
-  //       console.log(a);
-  //       this.onSelectAccount(a);
-  //     });
-  //   });
   }
 
   /**
@@ -73,7 +63,6 @@ class AccountsWidget {
               this.onSelectAccount(a);
             });
           });
-          // this.account = [...document.querySelectorAll('.account')];
         }
       });
     }
@@ -85,7 +74,6 @@ class AccountsWidget {
    * в боковой колонке
    * */
   clear() {
-    // this.account = [...document.querySelectorAll('.account')];
     for (let i = 0; i < this.account.length; i++) {
       this.account[i].remove();
     }
@@ -98,14 +86,13 @@ class AccountsWidget {
    * счёта класс .active.
    * Вызывает App.showPage( 'transactions', { account_id: id_счёта });
    * */
-  onSelectAccount( element ) {
+  onSelectAccount(element) {
     const activeAccount = document.querySelector('.active');
 
     if (activeAccount) {
       activeAccount.classList.remove('active');
     }
     element.classList.add('active');
-    console.log(element);
     App.showPage('transactions', {account_id: element.dataset.id});
   }
 
